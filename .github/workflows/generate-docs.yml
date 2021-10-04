@@ -1,0 +1,47 @@
+name: generate-docs
+on:
+  push:
+    branches:
+      - master
+jobs:
+  generate-docs:
+    name: generate-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '9.0.4' # The JDK version to make available on the path.
+          java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - uses: actions/setup-node@v1
+      - run: rm -rf *.bat *.sh Docker*
+      - run: npm install -g gitbook-cli
+      - run: gitbook install
+      - run: wget https://github.com/huxiaoning/gitbook-helper/releases/download/1.0/gitbook-helper-1.0-SNAPSHOT.jar
+      - run: java -jar -Dwork.dir=$(pwd) gitbook-helper-1.0-SNAPSHOT.jar
+      - run: rm -rf gitbook-helper-1.0-SNAPSHOT.jar
+      - run: gitbook build
+      - uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: _book
+  upload-docs:
+    name: upload-docs
+    needs: generate-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'docs'
+      - name: 删除除.git目录外的所有文件(夹)
+        run: ls -a | grep -v '^.git$' | grep -v '^.$' | grep -v '^..$' | xargs -t -I % rm -rf %
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs
+      - run: rm -rf .github
+      - run: git config --global user.email "secrets.EMAIL"
+      - run: git config --global user.name "secrets.NAME"
+      - run: git add .
+      - run: git commit -m 'UP'
+      - run: git push
