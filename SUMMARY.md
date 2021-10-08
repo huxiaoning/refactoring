@@ -1,6 +1,6 @@
 # Summary
 
-* [refactoring](README.md)
+* [重构-改善既有代码的设计](README.md)
 * [前言](01前言/README.md)
 	* [什么是重构](01前言/01什么是重构.md)
 	* [本书有什么](01前言/02本书有什么.md)
