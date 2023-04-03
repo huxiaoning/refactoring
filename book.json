@@ -14,14 +14,6 @@
     ],
 
     "pluginsConfig": {
-        "donate": {
-            "wechat": "https://raw.githubusercontent.com/huxiaoning/img/master/wechatpay.jpg",
-            "alipay": "https://raw.githubusercontent.com/huxiaoning/img/master/alipay.jpg",
-            "title": "",
-            "button": "打赏",
-            "alipayText": "支付宝打赏",
-            "wechatText": "微信打赏"
-        },
         "github-buttons": {
             "repo": "huxiaoning/refactoring",
             "types": [
