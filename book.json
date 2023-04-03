@@ -1,29 +1,35 @@
 {
-    "title": "重构-改善既有代码的设计",
-    "description": "重构-改善既有代码的设计",
-    "author": "Jett",
-    "language": "zh-hans",
-    "root": ".",
-
-    "plugins": [
-        "donate",
-        "github-buttons@2.1.0",
-        "edit-link",
-        "toggle-chapters",
-        "code"
-    ],
-
-    "pluginsConfig": {
-        "github-buttons": {
-            "repo": "huxiaoning/refactoring",
-            "types": [
-                "star"
-            ],
-            "size": "small"
-        },
-        "edit-link": {
-            "base": "https://github.com/huxiaoning/refactoring/edit/master",
-            "label": "编辑此页面"
-        }
+  "title": "重构-改善既有代码的设计",
+  "description": "重构-改善既有代码的设计",
+  "author": "Jett",
+  "language": "zh-hans",
+  "root": ".",
+  "plugins": [
+    "donate",
+    "github-buttons@2.1.0",
+    "edit-link",
+    "toggle-chapters",
+    "code"
+  ],
+  "pluginsConfig": {
+    "donate": {
+      "wechat": "https://raw.githubusercontent.com/huxiaoning/img/master/wechatpay.jpg",
+      "alipay": "https://raw.githubusercontent.com/huxiaoning/img/master/alipay.jpg",
+      "title": "",
+      "button": "打赏",
+      "alipayText": "支付宝打赏",
+      "wechatText": "微信打赏"
+    },
+    "github-buttons": {
+      "repo": "huxiaoning/refactoring",
+      "types": [
+        "star"
+      ],
+      "size": "small"
+    },
+    "edit-link": {
+      "base": "https://github.com/huxiaoning/refactoring/edit/master",
+      "label": "编辑此页面"
     }
+  }
 }
